@@ -23,16 +23,18 @@
 }
 
 .header_searchInput {
-	height: 12px;
+	height: 35px;
 	padding: 10px;
 	border: none;
 	width: 100%;
+	border-radius: 5px 0 0 5px;
 }
 
 .header_searchIcon {
 	padding: 5px;
-	height: 20px !important;
-	background-color: #cd9042;
+	height: 35px !important;
+	background-color: #febd69;
+	border-radius: 0 5px 5px 0;
 }
 
 .header_nav {

@@ -1,5 +1,9 @@
 import React from "react"
-import { Search as SearchIcon, ShoppingBasket } from "@material-ui/icons"
+import {
+	Search as SearchIcon,
+	ShoppingBasket,
+	LocationOn as LocationIcon,
+} from "@material-ui/icons"
 import "./Header.css"
 
 import logo from "../../../assets/images/amazon.png"
@@ -8,6 +12,11 @@ function Header() {
 	return (
 		<div className='header'>
 			<img className='header_logo' src={logo} alt='Amazon logo' />
+			<LocationIcon style={{ color: "#fff", marginRight: "-12px" }} />
+			<div className='header_option'>
+				<span className='header_option_one'>Deliver to</span>
+				<span className='header_option_two'>India</span>
+			</div>
 			<div className='header_search'>
 				<input className='header_searchInput' type='text' />
 				<SearchIcon className='header_searchIcon' />
