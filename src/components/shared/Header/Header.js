@@ -5,13 +5,16 @@ import {
 	LocationOn as LocationIcon,
 } from "@material-ui/icons"
 import "./Header.css"
+import { Link } from "react-router-dom"
 
 import logo from "../../../assets/images/amazon.png"
 
 function Header() {
 	return (
 		<div className='header'>
-			<img className='header_logo' src={logo} alt='Amazon logo' />
+			<Link to='/'>
+				<img className='header_logo' src={logo} alt='Amazon logo' />
+			</Link>
 			<LocationIcon style={{ color: "#fff", marginRight: "-12px" }} />
 			<div className='header_option'>
 				<span className='header_option_one'>Deliver to</span>
@@ -36,12 +39,14 @@ function Header() {
 					<span className='header_option_two'>Prime</span>
 				</div>
 
-				<div className='header_option_basket'>
-					<ShoppingBasket />
-					<span className='header_option_two header_basket_count'>
-						0
-					</span>
-				</div>
+				<Link to='/checkout'>
+					<div className='header_option_basket'>
+						<ShoppingBasket />
+						<span className='header_option_two header_basket_count'>
+							0
+						</span>
+					</div>
+				</Link>
 			</div>
 		</div>
 	)
