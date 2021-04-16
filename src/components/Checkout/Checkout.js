@@ -1,5 +1,6 @@
 import React from "react"
 import "./Checkout.css"
+import Subtotal from "./Subtotal/Subtotal"
 
 function Checkout() {
 	return (
@@ -7,7 +8,7 @@ function Checkout() {
 			<div className='checkout_left'>
 				<img
 					className='checkout_ad'
-					src='https://wordstream-files-prod.s3.amazonaws.com/s3fs-public/styles/simple_image/public/images/media/images/banner-ads-examples-amazon.jpg?20fWkG1X2YxnKCdF5DHfO4Lf8pkrHuoh&itok=UrMRpyj_'
+					src='https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg'
 					alt='Ad banner'
 				/>
 
@@ -19,7 +20,7 @@ function Checkout() {
 			</div>
 
 			<div className='checkout_right'>
-				<h2>The subtotal will go here!</h2>
+				<Subtotal />
 			</div>
 		</div>
 	)
