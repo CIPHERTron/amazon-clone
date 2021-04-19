@@ -8,8 +8,11 @@ import "./Header.css"
 import { Link } from "react-router-dom"
 
 import logo from "../../../assets/images/amazon.png"
+import { useStateValue } from "../../../redux/StateProvider"
 
 function Header() {
+	const [state, dispatch] = useStateValue()
+
 	return (
 		<div className='header'>
 			<Link to='/'>
@@ -43,7 +46,8 @@ function Header() {
 					<div className='header_option_basket'>
 						<ShoppingBasket />
 						<span className='header_option_two header_basket_count'>
-							0
+							{state.basket?.length}
+							{/* "?" mark in the above statement is optional chaining */}
 						</span>
 					</div>
 				</Link>
