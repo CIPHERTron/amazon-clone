@@ -11,7 +11,7 @@ import logo from "../../../assets/images/amazon.png"
 import { useStateValue } from "../../../redux/StateProvider"
 
 function Header() {
-	const [state, dispatch] = useStateValue()
+	const [state] = useStateValue()
 
 	return (
 		<div className='header'>

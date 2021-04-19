@@ -3,7 +3,7 @@ import { useStateValue } from "../../../redux/StateProvider"
 import "./Product.css"
 
 function Product({ id, title, image, price, rating }) {
-	const [{ basket }, dispatch] = useStateValue() // destructuring basket from state
+	const [dispatch] = useStateValue() // destructuring basket from state
 
 	const addToBasket = () => {
 		// Dispatch ADD_TO_BASKET action(item into data layer)
