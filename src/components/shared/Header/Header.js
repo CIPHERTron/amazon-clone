@@ -11,7 +11,8 @@ import logo from "../../../assets/images/amazon.png"
 import { useStateValue } from "../../../redux/StateProvider"
 
 function Header() {
-	const [state] = useStateValue()
+	// eslint-disable-next-line
+	const [state, dispatch] = useStateValue()
 
 	return (
 		<div className='header'>
