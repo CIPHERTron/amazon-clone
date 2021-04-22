@@ -1,10 +1,27 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Login.css"
+import { Link } from "react-router-dom"
 
 export default function Login() {
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
+
 	const toggleForm = () => {
 		const container = document.querySelector(".container")
 		container.classList.toggle("active")
+	}
+
+	const onEmailChange = (e) => {
+		setEmail(e.target.value)
+	}
+
+	const onPasswordChange = (e) => {
+		setPassword(e.target.value)
+	}
+
+	const onLoginClick = (e) => {
+		e.preventDefault()
+		console.log("Login Clicked")
 	}
 
 	return (
@@ -18,21 +35,34 @@ export default function Login() {
 						/>
 					</div>
 					<div className='formBx'>
-						<form action=''>
+						<form action='' onSubmit={onLoginClick}>
+							<Link
+								style={{ textDecoration: "none" }}
+								to='/'
+							>
+								<h1 className='brand-heading'>
+									NOT AMAZON
+								</h1>
+							</Link>
 							<h2>Sign In</h2>
 							<input
 								type='email'
 								name=''
+								value={email}
+								onChange={onEmailChange}
 								placeholder='Email Address'
 							/>
 							<input
 								type='password'
 								name=''
 								placeholder='Password'
+								value={password}
+								onChange={onPasswordChange}
 							/>
 							<input type='submit' name='' value='Login' />
 							<p className='signup'>
 								Don't have an account ?
+								{/* eslint-disable-next-line */}
 								<a href='#' onClick={toggleForm}>
 									Sign Up.
 								</a>
@@ -43,10 +73,14 @@ export default function Login() {
 				<div className='user signupBx'>
 					<div className='formBx'>
 						<form action=''>
-							<h2>Welcome to</h2>
-							<h2>
-								<strong>CODE CANNIBALS</strong>
-							</h2>
+							<Link
+								style={{ textDecoration: "none" }}
+								to='/'
+							>
+								<h1 className='brand-heading'>
+									NOT AMAZON
+								</h1>
+							</Link>
 							<h2>Create an account</h2>
 							<input
 								type='text'
@@ -56,29 +90,27 @@ export default function Login() {
 							<input
 								type='email'
 								name=''
+								value={email}
+								onChange={onEmailChange}
 								placeholder='Email Address'
 							/>
 							<input
 								type='password'
 								name=''
-								placeholder='Create Password'
-							/>
-							<input
-								type='password'
-								name=''
-								placeholder='Confirm Password'
+								placeholder='Password'
+								value={password}
+								onChange={onPasswordChange}
 							/>
 							<input
 								type='submit'
 								name=''
 								value='Sign Up'
 							/>
+
 							<p className='signup'>
 								Already have an account ?
-								<a
-									href='https://google.com'
-									onClick={toggleForm}
-								>
+								{/* eslint-disable-next-line */}
+								<a href='#' onClick={toggleForm}>
 									Sign in.
 								</a>
 							</p>
