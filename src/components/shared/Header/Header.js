@@ -1,8 +1,8 @@
 import React from "react"
 import {
 	Search as SearchIcon,
-	ShoppingBasket,
 	LocationOn as LocationIcon,
+	AddShoppingCart,
 } from "@material-ui/icons"
 import "./Header.css"
 import { Link } from "react-router-dom"
@@ -30,10 +30,15 @@ function Header() {
 			</div>
 
 			<div className='header_nav'>
-				<div className='header_option'>
-					<span className='header_option_one'>Hello Guest</span>
-					<span className='header_option_two'>Sign In</span>
-				</div>
+				<Link to='/login'>
+					<div className='header_option'>
+						<span className='header_option_one'>
+							Hello Guest
+						</span>
+						<span className='header_option_two'>Sign In</span>
+					</div>
+				</Link>
+
 				<div className='header_option'>
 					<span className='header_option_one'>Returns</span>
 					<span className='header_option_two'>& orders</span>
@@ -45,7 +50,7 @@ function Header() {
 
 				<Link to='/checkout'>
 					<div className='header_option_basket'>
-						<ShoppingBasket />
+						<AddShoppingCart />
 						<span className='header_option_two header_basket_count'>
 							{state.basket?.length}
 							{/* "?" mark in the above statement is optional chaining */}
