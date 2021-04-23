@@ -9,10 +9,17 @@ import { Link } from "react-router-dom"
 
 import logo from "../../../assets/images/amazon.png"
 import { useStateValue } from "../../../redux/StateProvider"
+import { auth } from "../../../config/firebase"
 
 function Header() {
 	// eslint-disable-next-line
-	const [state, dispatch] = useStateValue()
+	const [{ basket, user }, dispatch] = useStateValue()
+
+	const handleAuth = () => {
+		if (user) {
+			auth.signOut()
+		}
+	}
 
 	return (
 		<div className='header'>
@@ -30,12 +37,14 @@ function Header() {
 			</div>
 
 			<div className='header_nav'>
-				<Link to='/login'>
-					<div className='header_option'>
+				<Link to={!user && "/login"}>
+					<div onClick={handleAuth} className='header_option'>
 						<span className='header_option_one'>
-							Hello Guest
+							Hello {user ? user.email : "Guest"}
 						</span>
-						<span className='header_option_two'>Sign In</span>
+						<span className='header_option_two'>
+							{user ? "Sign Out" : "Sign In"}
+						</span>
 					</div>
 				</Link>
 
@@ -52,7 +61,7 @@ function Header() {
 					<div className='header_option_basket'>
 						<AddShoppingCart />
 						<span className='header_option_two header_basket_count'>
-							{state.basket?.length}
+							{basket?.length}
 							{/* "?" mark in the above statement is optional chaining */}
 						</span>
 					</div>
