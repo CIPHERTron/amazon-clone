@@ -1,10 +1,14 @@
 import React, { useState } from "react"
 import "./Login.css"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
+import { auth } from "../../config/firebase"
 
 export default function Login() {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	// const [name, setName] = useState("")
+
+	const history = useHistory()
 
 	const toggleForm = () => {
 		const container = document.querySelector(".container")
@@ -22,6 +26,30 @@ export default function Login() {
 	const onLoginClick = (e) => {
 		e.preventDefault()
 		console.log("Login Clicked")
+
+		auth.signInWithEmailAndPassword(email, password)
+			.then((auth) => {
+				console.log(auth)
+				if (auth) {
+					history.push("/")
+				}
+			})
+			.catch((err) => console.log(err))
+	}
+
+	const onRegisterClick = (e) => {
+		e.preventDefault()
+		console.log("Register Clicked")
+
+		auth.createUserWithEmailAndPassword(email, password)
+			.then((auth) => {
+				console.log(auth)
+				if (auth) {
+					history.push("/")
+					// auth.user.displayName = name
+				}
+			})
+			.catch((err) => console.log(err))
 	}
 
 	return (
@@ -72,7 +100,7 @@ export default function Login() {
 				</div>
 				<div className='user signupBx'>
 					<div className='formBx'>
-						<form action=''>
+						<form action='' onSubmit={onRegisterClick}>
 							<Link
 								style={{ textDecoration: "none" }}
 								to='/'
