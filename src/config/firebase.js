@@ -1,3 +1,4 @@
+import firebase from "firebase"
 const apiKey = process.env.REACT_APP_API_KEY
 const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID
 const appId = process.env.REACT_APP_APPID
@@ -10,3 +11,10 @@ const firebaseConfig = {
 	messagingSenderId: messagingSenderId,
 	appId: appId,
 }
+
+const Firebase = firebase.initializeApp(firebaseConfig)
+
+const db = Firebase.firestore()
+const auth = Firebase.auth()
+
+export { db, auth }
