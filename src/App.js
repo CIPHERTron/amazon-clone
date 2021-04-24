@@ -30,7 +30,8 @@ function App() {
 				})
 			}
 		})
-	}, [dispatch])
+		// eslint-disable-next-line
+	}, [])
 	return (
 		<Router>
 			<div className='app'>
