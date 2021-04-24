@@ -6,7 +6,7 @@ import CheckoutProduct from "./CheckoutProduct/CheckoutProduct"
 
 function Checkout() {
 	// eslint-disable-next-line
-	const [{ basket }, dispatch] = useStateValue()
+	const [{ basket, user }, dispatch] = useStateValue()
 	return (
 		<div className='checkout'>
 			<div className='checkout_left'>
@@ -17,6 +17,7 @@ function Checkout() {
 				/>
 
 				<div>
+					<h1 className='checkout-title'>Heyy {user?.email}</h1>
 					<h2 className='checkout_title'>
 						Your shopping basket
 					</h2>
