@@ -9,6 +9,7 @@ import Home from "./components/Home/Home"
 import Header from "./components/shared/Header/Header"
 import Footer from "./components/shared/Footer/Footer"
 import Checkout from "./components/Checkout/Checkout"
+import Payment from "./components/Checkout/Payment/Payment"
 import Login from "./components/auth/Login"
 
 function App() {
@@ -42,6 +43,11 @@ function App() {
 					<Route exact path='/checkout'>
 						<Header />
 						<Checkout />
+						<Footer />
+					</Route>
+					<Route exact path='/payment'>
+						<Header />
+						<Payment />
 						<Footer />
 					</Route>
 					<Route exact path='/'>
