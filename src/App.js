@@ -4,6 +4,10 @@ import { auth } from "./config/firebase"
 import { useStateValue } from "./redux/StateProvider"
 import "./App.css"
 
+// Stripe imports
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
+
 // Import components
 import Home from "./components/Home/Home"
 import Header from "./components/shared/Header/Header"
@@ -11,6 +15,10 @@ import Footer from "./components/shared/Footer/Footer"
 import Checkout from "./components/Checkout/Checkout"
 import Payment from "./components/Checkout/Payment/Payment"
 import Login from "./components/auth/Login"
+
+const promise = loadStripe(
+	"pk_test_51Ik5dOSGm7zaQ1rANEE8PfKwTlgazBbxNpNNdKGnCKrwryTGWRT7eZup0QdRa2fUc1VwopywLEB6UqOaNPAxfUQJ00nsVQqyf8"
+)
 
 function App() {
 	// eslint-disable-next-line
@@ -47,7 +55,9 @@ function App() {
 					</Route>
 					<Route exact path='/payment'>
 						<Header />
-						<Payment />
+						<Elements stripe={promise}>
+							<Payment />
+						</Elements>
 						<Footer />
 					</Route>
 					<Route exact path='/'>
