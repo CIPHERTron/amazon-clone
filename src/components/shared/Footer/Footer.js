@@ -1,5 +1,6 @@
 import React from "react"
 import "./Footer.css"
+import { Instagram, LinkedIn, Mail, GitHub } from "@material-ui/icons"
 
 export default function Footer() {
 	return (
@@ -64,16 +65,16 @@ export default function Footer() {
 						<h4>follow us</h4>
 						<div class='social-links'>
 							<a href='/'>
-								<i class='fab fa-facebook-f'></i>
+								<Mail />
 							</a>
 							<a href='/'>
-								<i class='fab fa-twitter'></i>
+								<Instagram />
 							</a>
 							<a href='/'>
-								<i class='fab fa-instagram'></i>
+								<GitHub />
 							</a>
 							<a href='/'>
-								<i class='fab fa-linkedin-in'></i>
+								<LinkedIn />
 							</a>
 						</div>
 					</div>
