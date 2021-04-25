@@ -1,11 +1,13 @@
 import React from "react"
 import { useStateValue } from "../../../redux/StateProvider"
 import { Link } from "react-router-dom"
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import "./Payment.css"
 
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct"
 
 function Payment() {
+	// eslint-disable-next-line
 	const [{ basket, user }, dispatch] = useStateValue()
 
 	return (
@@ -49,7 +51,11 @@ function Payment() {
 						<h3>Payment Method</h3>
 					</div>
 
-					<div className='payment-details'></div>
+					<div className='payment-details'>
+						<form>
+							<CardElement />
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
