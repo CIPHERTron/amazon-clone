@@ -7,7 +7,7 @@ import "./App.css"
 // Import components
 import Home from "./components/Home/Home"
 import Header from "./components/shared/Header/Header"
-import Footer from "./components/shared/Footer"
+import Footer from "./components/shared/Footer/Footer"
 import Checkout from "./components/Checkout/Checkout"
 import Login from "./components/auth/Login"
 
