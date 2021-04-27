@@ -8,3 +8,10 @@ const stripe = require("stripe")(
 
 // initialize app
 const app = express();
+
+// middlewares
+app.use(cors({ origin: true }));
+app.use(express.json());
+
+// routes
+app.get("/", (req, res) => res.status(200).send("Home route"));
