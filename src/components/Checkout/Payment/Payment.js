@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react"
-import { useStateValue } from "../../../redux/StateProvider"
-import { Link, useHistory } from "react-router-dom"
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import CurrencyFormat from "react-currency-format"
-import stripeAPI from "../../../apis/stripe"
-import "./Payment.css"
+import React, { useState, useEffect } from "react";
+import { useStateValue } from "../../../redux/StateProvider";
+import { Link, useHistory } from "react-router-dom";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import CurrencyFormat from "react-currency-format";
+import stripeAPI from "../../../apis/stripe";
+import "./Payment.css";
 
-import CheckoutProduct from "../CheckoutProduct/CheckoutProduct"
-import { getBasketTotal } from "../../../redux/Reducer"
+import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
+import { getBasketTotal } from "../../../redux/Reducer";
 
 function Payment() {
 	// eslint-disable-next-line
-	const [{ basket, user }, dispatch] = useStateValue()
+	const [{ basket, user }, dispatch] = useStateValue();
 
-	const history = useHistory()
+	const history = useHistory();
 
-	const stripe = useStripe()
-	const elements = useElements()
+	const stripe = useStripe();
+	const elements = useElements();
 
-	const [succeeded, setSucceeded] = useState(false)
-	const [processing, setProcessing] = useState("")
-	const [error, setError] = useState(null)
-	const [disabled, setDisabled] = useState(true)
-	const [clientSecret, setClientSecret] = useState(true)
+	const [succeeded, setSucceeded] = useState(false);
+	const [processing, setProcessing] = useState("");
+	const [error, setError] = useState(null);
+	const [disabled, setDisabled] = useState(true);
+	const [clientSecret, setClientSecret] = useState(true);
 
 	useEffect(() => {
 		const getClientSecret = async () => {
@@ -31,16 +31,20 @@ function Payment() {
 				url: `/payments/create?total=${
 					getBasketTotal(basket) * 100
 				}`,
-			})
-			setClientSecret(response.data.clientSecret)
-		}
+			});
+			setClientSecret(response.data.clientSecret);
+		};
 
-		getClientSecret()
-	}, [basket])
+		getClientSecret();
+	}, [basket]);
+
+	console.log("====================================");
+	console.log("The client secret is:", clientSecret);
+	console.log("====================================");
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
-		setProcessing(true)
+		e.preventDefault();
+		setProcessing(true);
 
 		const payload = await stripe
 			.confirmCardPayment(clientSecret, {
@@ -51,18 +55,18 @@ function Payment() {
 			.then(({ paymentIntent }) => {
 				//paymentIntent = payment confirmation
 
-				setSucceeded(true)
-				setError(null)
-				setProcessing(false)
+				setSucceeded(true);
+				setError(null);
+				setProcessing(false);
 
-				history.replace("/orders")
-			})
-	}
+				history.replace("/orders");
+			});
+	};
 
 	const handleChange = (event) => {
-		setDisabled(event.empty)
-		setError(event.error ? event.error.message : "")
-	}
+		setDisabled(event.empty);
+		setError(event.error ? event.error.message : "");
+	};
 
 	return (
 		<div className='payment'>
@@ -144,7 +148,7 @@ function Payment() {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
 
-export default Payment
+export default Payment;
