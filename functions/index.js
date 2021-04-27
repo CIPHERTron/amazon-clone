@@ -15,3 +15,8 @@ app.use(express.json());
 
 // routes
 app.get("/", (req, res) => res.status(200).send("Home route"));
+
+// Run server
+exports.api = functions.https.onRequest(app);
+
+// Base URL: http://localhost:5001/clone-2d395/us-central1/api
