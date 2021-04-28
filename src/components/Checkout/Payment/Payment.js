@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import stripeAPI from "../../../apis/stripe";
+import { db } from "../../../config/firebase";
 import "./Payment.css";
 
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
@@ -38,12 +39,14 @@ function Payment() {
 		getClientSecret();
 	}, [basket]);
 
-	console.log("The client secret is:", clientSecret);
+	// console.log("The client secret is:", clientSecret);
+	// console.log(user);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setProcessing(true);
 
+		// eslint-disable-next-line no-unused-vars
 		const payload = await stripe
 			.confirmCardPayment(clientSecret, {
 				payment_method: {
@@ -52,6 +55,16 @@ function Payment() {
 			})
 			.then(({ paymentIntent }) => {
 				//paymentIntent = payment confirmation
+
+				db.collection("users")
+					.doc(user?.uid)
+					.collection("orders")
+					.doc(paymentIntent.id)
+					.set({
+						basket: basket,
+						amount: paymentIntent.amount,
+						created: paymentIntent.created,
+					});
 
 				setSucceeded(true);
 				setError(null);
