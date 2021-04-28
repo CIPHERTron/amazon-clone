@@ -1,13 +1,13 @@
-import React from "react"
-import "./Footer.css"
-import { Instagram, LinkedIn, Mail, GitHub } from "@material-ui/icons"
+import React from "react";
+import "./Footer.css";
+import { Instagram, LinkedIn, Mail, GitHub } from "@material-ui/icons";
 
 export default function Footer() {
 	return (
-		<footer class='footer'>
-			<div class='container'>
-				<div class='row'>
-					<div class='footer-col'>
+		<footer className='footer'>
+			<div className='container'>
+				<div className='row'>
+					<div className='footer-col'>
 						<h4>company</h4>
 						<ul>
 							<li>
@@ -24,7 +24,7 @@ export default function Footer() {
 							</li>
 						</ul>
 					</div>
-					<div class='footer-col'>
+					<div className='footer-col'>
 						<h4>get help</h4>
 						<ul>
 							<li>
@@ -44,7 +44,7 @@ export default function Footer() {
 							</li>
 						</ul>
 					</div>
-					<div class='footer-col'>
+					<div className='footer-col'>
 						<h4>online shop</h4>
 						<ul>
 							<li>
@@ -61,9 +61,9 @@ export default function Footer() {
 							</li>
 						</ul>
 					</div>
-					<div class='footer-col'>
+					<div className='footer-col'>
 						<h4>follow us</h4>
-						<div class='social-links'>
+						<div className='social-links'>
 							<a href='/'>
 								<Mail />
 							</a>
@@ -81,5 +81,5 @@ export default function Footer() {
 				</div>
 			</div>
 		</footer>
-	)
+	);
 }
