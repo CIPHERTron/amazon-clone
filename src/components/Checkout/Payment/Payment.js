@@ -38,9 +38,7 @@ function Payment() {
 		getClientSecret();
 	}, [basket]);
 
-	console.log("====================================");
 	console.log("The client secret is:", clientSecret);
-	console.log("====================================");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -58,6 +56,10 @@ function Payment() {
 				setSucceeded(true);
 				setError(null);
 				setProcessing(false);
+
+				dispatch({
+					type: "EMPTY_BASKET",
+				});
 
 				history.replace("/orders");
 			});
