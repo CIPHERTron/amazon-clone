@@ -8,7 +8,7 @@ function Home() {
 	return (
 		<div className='home'>
 			<div className='home_container'>
-				<img className='home_image' src={home} alt='' />
+				<img className='home_image' src="https://res.cloudinary.com/pritish007/image/upload/v1625731390/Wallpaperkiss_1476738_ewj2mk.jpg" alt='Homepage Cover' />
 
 				<div className='home_row'>
 					<Product
