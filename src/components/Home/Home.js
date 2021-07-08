@@ -2,8 +2,6 @@ import React from "react"
 import "./Home.css"
 import Product from "./Product/Product"
 
-import home from "../../assets/images/home.jpg"
-
 function Home() {
 	return (
 		<div className='home'>
