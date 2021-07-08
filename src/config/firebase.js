@@ -1,7 +1,7 @@
 import firebase from "firebase"
-const apiKey = process.env.REACT_APP_API_KEY
-const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID
-const appId = process.env.REACT_APP_APPID
+const apiKey = "AIzaSyAjdGUdpb5fy8gxenDu071qsbOzMtOLc5I"
+const messagingSenderId = "565390277671"
+const appId = "1:565390277671:web:83fed398200faae1956202"
 
 const firebaseConfig = {
 	apiKey: apiKey,

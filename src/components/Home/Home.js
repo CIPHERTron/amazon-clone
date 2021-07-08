@@ -6,7 +6,11 @@ function Home() {
 	return (
 		<div className='home'>
 			<div className='home_container'>
-				<img className='home_image' src="https://res.cloudinary.com/pritish007/image/upload/v1625731390/Wallpaperkiss_1476738_ewj2mk.jpg" alt='Homepage Cover' />
+				<img
+					className='home_image'
+					src='https://res.cloudinary.com/pritish007/image/upload/v1625731390/Wallpaperkiss_1476738_ewj2mk.jpg'
+					alt='Homepage Cover'
+				/>
 
 				<div className='home_row'>
 					<Product
@@ -59,10 +63,10 @@ function Home() {
 					/>
 					<Product
 						id='23445931'
-						title="Nike Unisex-Adult Phantom Gt Academy Mg Football Shoes"
+						title='Nike Unisex-Adult Phantom Gt Academy Mg Football Shoes'
 						price={98.99}
 						rating={5}
-						image="https://images-na.ssl-images-amazon.com/images/I/71-BjLY%2BbrL._UL1500_.jpg"
+						image='https://images-na.ssl-images-amazon.com/images/I/71-BjLY%2BbrL._UL1500_.jpg'
 					/>
 					<Product
 						id='3254354346'
@@ -76,7 +80,7 @@ function Home() {
 				<div className='home_row'>
 					<Product
 						id='90829332'
-						title="Kids Blue SUPERFLY 7 CLUB FG/MG Mid-Top Football Shoes"
+						title='Kids Blue SUPERFLY 7 CLUB FG/MG Mid-Top Football Shoes'
 						price={1094.98}
 						rating={4}
 						image='https://res.cloudinary.com/pritish007/image/upload/v1625730925/nike_1_u70nkf.jpg'
